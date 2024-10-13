@@ -7,10 +7,16 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "375px",
+      md: "768px",
+      lg: "976px",
+      xl: "1440px",
+    },
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        veryDarkGray: "hsl(0, 0%, 17%)",
+        darkGray: "hsl(0, 0%, 59%)",
       },
     },
   },
