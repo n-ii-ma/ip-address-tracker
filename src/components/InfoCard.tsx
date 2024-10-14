@@ -8,7 +8,7 @@ const DATA = [
 
 const InfoCard = () => {
   return (
-    <div className="flex flex-col justify-between items-center w-full p-6 gap-6 bg-white rounded-2xl md:flex-row md:w-auto">
+    <div className="flex flex-col justify-between items-center w-full p-6 gap-6 bg-white rounded-2xl z-[5000] md:flex-row md:w-auto">
       {DATA.map((item, index) => (
         <div
           key={index}
