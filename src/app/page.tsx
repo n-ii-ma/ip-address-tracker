@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 
+import { getIPInfo } from "@/lib/fetchData";
+
 import Header from "@/components/Header";
 
 // Dynamically import the Map component which is only rendered on the client side
@@ -12,12 +14,17 @@ const DynamicMap = dynamic(() => import("@/components/Map"), {
   ),
 });
 
-const Home = () => {
+const Home = async () => {
+  // Get IP info
+  const { location } = await getIPInfo();
+
   return (
     <main className="relative w-full h-screen">
       <Header />
       <section className="h-[65%] md:h-[75%]">
-        <DynamicMap />
+        <DynamicMap
+          position={location ? [location.lat, location.lng] : [51.505, -0.09]}
+        />
       </section>
     </main>
   );
