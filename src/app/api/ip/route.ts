@@ -7,13 +7,12 @@ export async function GET(request: Request) {
 
   // Extract the user's IP address
   const ip = request.headers.get("X-Forwarded-For");
+  const ipAddress = query || (process.env.NODE_ENV === "production" ? ip : "");
 
   // Create URL
   const url = isValidDomain(query)
     ? `${baseURL}&domain=${query}`
-    : `${baseURL}&ipAddress=${
-        query || process.env.NODE_ENV === "production" ? ip : ""
-      }`;
+    : `${baseURL}&ipAddress=${ipAddress}`;
 
   try {
     const res = await fetch(url);
