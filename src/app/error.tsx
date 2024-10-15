@@ -7,7 +7,7 @@ const Error = ({
   error: Error & { digest?: string };
   reset: () => void;
 }) => {
-  console.log(error);
+  console.error(error);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
