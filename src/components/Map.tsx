@@ -5,8 +5,16 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
+import { icon } from "leaflet";
 
 import type { LatLngExpression } from "leaflet";
+
+// Custom icon
+const customIcon = icon({
+  iconUrl: "/images/icon-location.svg",
+  iconSize: [46, 56],
+  iconAnchor: [23, 56],
+});
 
 const AutoRecenter = ({ position }: { position: LatLngExpression }) => {
   // Get the map instance
@@ -34,7 +42,7 @@ const Map = ({ position }: { position: LatLngExpression }) => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={position} />
+      <Marker position={position} icon={customIcon} />
       <AutoRecenter position={position} />
     </MapContainer>
   );
