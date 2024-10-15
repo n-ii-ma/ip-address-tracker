@@ -12,7 +12,7 @@ export type SearchBarProps = Pick<
   "getSearchResults" | "setSearchLoading"
 >;
 
-interface TransformedData {
+export interface TransformedData {
   title: string;
   value: string;
 }
