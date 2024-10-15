@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { toast } from "react-toastify";
 
-import arrowIcon from "../../public/images/icon-arrow.svg";
+import arrowIcon from "../../public/icons/icon-arrow.svg";
 
 import { isValidDomain, isValidIP } from "@/lib/utils";
 import { fetchIPInfo } from "@/lib/fetchData";

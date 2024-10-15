@@ -11,7 +11,7 @@ import type { LatLngExpression } from "leaflet";
 
 // Custom icon
 const customIcon = icon({
-  iconUrl: "/images/icon-location.svg",
+  iconUrl: "/icons/icon-location.svg",
   iconSize: [46, 56],
   iconAnchor: [23, 56],
 });
