@@ -7,10 +7,10 @@ export interface HeaderProps {
   setSearchLoading: (loading: boolean) => void;
 }
 
-export type SearchBarProps = Pick<
-  HeaderProps,
-  "getSearchResults" | "setSearchLoading"
->;
+export interface SearchBarProps
+  extends Pick<HeaderProps, "getSearchResults" | "setSearchLoading"> {
+  currentIP: IPInfo["ip"];
+}
 
 export interface TransformedData {
   title: string;
