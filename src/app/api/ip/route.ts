@@ -5,10 +5,15 @@ export async function GET(request: Request) {
   const query = searchParams.get("query") ?? "";
   const baseURL = `https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.IPIFY_API_KEY}`;
 
+  // Extract the user's IP address
+  const ip = request.headers.get("X-Forwarded-For");
+
   // Create URL
   const url = isValidDomain(query)
     ? `${baseURL}&domain=${query}`
-    : `${baseURL}&ipAddress=${query}`;
+    : `${baseURL}&ipAddress=${
+        query || process.env.NODE_ENV === "production" ? ip : ""
+      }`;
 
   try {
     const res = await fetch(url);
