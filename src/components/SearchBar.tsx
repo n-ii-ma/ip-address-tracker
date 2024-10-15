@@ -40,7 +40,7 @@ const SearchBar = ({
     e.preventDefault();
 
     // Check if the input is valid
-    if (!isValid(query)) {
+    if (!isValid(query.trim())) {
       toast.error("Please enter a valid IP address or domain");
       return;
     }
@@ -49,7 +49,7 @@ const SearchBar = ({
     setSearchLoading(true);
 
     // Fetch IP info
-    const data = await fetchIPInfo(query);
+    const data = await fetchIPInfo(query.trim());
     getSearchResults(data);
     setSearchLoading(false);
   };
