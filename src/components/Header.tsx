@@ -31,7 +31,7 @@ const Header = ({
   };
 
   return (
-    <header className="relative flex flex-col items-center h-[35%] py-4 md:h-[25%]">
+    <header className="relative flex flex-col items-center h-[35%] py-4 md:h-[25%] md:py-8">
       {/* Background */}
       <Image
         src={patternBg}
@@ -50,7 +50,7 @@ const Header = ({
       <h1 className="text-2xl text-white font-medium">IP Address Tracker</h1>
 
       {/* Search and Result */}
-      <section className="flex flex-col items-center w-[85%] mt-4 gap-4">
+      <section className="flex flex-col items-center w-[85%] mt-4 gap-4 md:mt-8 md:gap-6">
         <SearchBar
           currentIP={ipInfo?.ip ?? ""}
           getSearchResults={getSearchResults}
