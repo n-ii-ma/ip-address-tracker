@@ -6,8 +6,8 @@ import SearchBar from "./SearchBar";
 import InfoCard from "./InfoCard";
 import InfoCardSkeleton from "./InfoCardSkeleton";
 
-import type { IPInfo } from "../types/IPInfo";
-import type { HeaderProps, TransformedData } from "../types/Components";
+import type { IPInfo } from "@/types/IPInfo";
+import type { HeaderProps, TransformedData } from "@/types/Components";
 
 const Header = ({
   ipInfo,

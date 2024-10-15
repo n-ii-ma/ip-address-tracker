@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-import type { IPInfo } from "../types/IPInfo";
+import type { IPInfo } from "@/types/IPInfo";
 
 /* Fetch IP info */
 export const fetchIPInfo = async (query?: string): Promise<IPInfo> => {

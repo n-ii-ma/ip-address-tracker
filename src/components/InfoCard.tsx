@@ -1,4 +1,4 @@
-import type { InfoCardProps } from "../types/Components";
+import type { InfoCardProps } from "@/types/Components";
 
 const InfoCard = ({ transformInfo }: InfoCardProps) => {
   return (

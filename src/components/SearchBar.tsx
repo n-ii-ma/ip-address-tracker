@@ -9,7 +9,7 @@ import arrowIcon from "../../public/images/icon-arrow.svg";
 import { isValidDomain, isValidIP } from "@/lib/utils";
 import { fetchIPInfo } from "@/lib/fetchData";
 
-import type { SearchBarProps } from "../types/Components";
+import type { SearchBarProps } from "@/types/Components";
 
 const SearchBar = ({
   currentIP,

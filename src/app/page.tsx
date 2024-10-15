@@ -8,7 +8,7 @@ import { fetchIPInfo } from "@/lib/fetchData";
 import Header from "@/components/Header";
 import Loading from "./loading";
 
-import type { IPInfo } from "../types/IPInfo";
+import type { IPInfo } from "@/types/IPInfo";
 
 // Dynamically import the Map component which is only rendered on the client side
 const DynamicMap = dynamic(() => import("@/components/Map"), {
