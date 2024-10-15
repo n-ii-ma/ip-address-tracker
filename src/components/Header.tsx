@@ -31,7 +31,7 @@ const Header = ({
   };
 
   return (
-    <header className="relative flex flex-col items-center h-[35%] py-4 md:h-[25%] md:py-8">
+    <header className="relative flex flex-col items-center min-h-[300px] py-4 md:min-h-[250px] md:py-8">
       <Image
         src={patternBg}
         alt="Patterend header background"
@@ -45,7 +45,7 @@ const Header = ({
         }}
       />
       <h1 className="text-2xl text-white font-medium">IP Address Tracker</h1>
-      <section className="flex flex-col items-center w-[85%] mt-4 gap-4 md:mt-8 md:gap-6">
+      <section className="absolute top-12 flex flex-col items-center w-[85%] mt-4 gap-4 md:-bottom-16 md:top-16 md:mt-8 md:gap-6">
         <SearchBar
           currentIP={ipInfo?.ip ?? ""}
           getSearchResults={getSearchResults}

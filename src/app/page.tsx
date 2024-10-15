@@ -36,14 +36,14 @@ const Home = () => {
   const setSearchLoading = (loading: boolean) => setIsLoading(loading);
 
   return (
-    <main className="relative w-full h-screen">
+    <main className="relative w-full h-screen flex flex-col">
       <Header
         ipInfo={ipInfo}
         isLoading={isLoading}
         setSearchLoading={setSearchLoading}
         getSearchResults={getSearchResults}
       />
-      <section className="h-[65%] md:h-[75%]">
+      <section className="flex-grow">
         {ipInfo?.location ? (
           <DynamicMap position={[ipInfo.location.lat, ipInfo.location.lng]} />
         ) : (
