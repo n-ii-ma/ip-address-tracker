@@ -1,7 +1,7 @@
 // Skeleton for the InfoCard
 const InfoCardSkeleton = () => {
   return (
-    <div className="flex flex-col justify-between items-center w-full p-6 gap-6 bg-white rounded-2xl z-[5000] md:flex-row md:w-auto">
+    <div className="flex flex-col justify-between items-center w-full p-6 gap-5 bg-white rounded-2xl z-[5000] md:flex-row md:w-auto">
       {Array(4)
         .fill(0)
         .map((_, index) => (
