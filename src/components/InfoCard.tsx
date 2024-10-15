@@ -9,7 +9,7 @@ const InfoCard = ({ transformInfo }: InfoCardProps) => {
           className="text-center md:min-h-20 md:text-left md:border-r md:border-gray-200 md:pr-10 md:last:border-0"
         >
           <p className="text-xs text-darkGray mb-2">{info.title}</p>
-          <h2 className="text-xl text-veryDarkGray font-medium">
+          <h2 className="text-xl max-w-60 break-words text-veryDarkGray font-medium">
             {info.value}
           </h2>
         </div>
