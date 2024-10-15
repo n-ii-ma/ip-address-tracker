@@ -13,6 +13,7 @@ import type { IPInfo } from "../types/IPInfo";
 // Dynamically import the Map component which is only rendered on the client side
 const DynamicMap = dynamic(() => import("@/components/Map"), {
   ssr: false,
+  loading: () => <Loading />,
 });
 
 const Home = () => {
@@ -43,7 +44,7 @@ const Home = () => {
         getSearchResults={getSearchResults}
       />
       <section className="h-[65%] md:h-[75%]">
-        {ipInfo?.location && !isLoading ? (
+        {ipInfo?.location ? (
           <DynamicMap position={[ipInfo.location.lat, ipInfo.location.lng]} />
         ) : (
           <Loading />
