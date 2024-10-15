@@ -16,14 +16,15 @@ const DynamicMap = dynamic(() => import("@/components/Map"), {
 });
 
 const Home = () => {
-  // IP info state
-  const [ipInfo, setIpInfo] = useState<IPInfo | null>(null);
+  const [ipInfo, setIpInfo] = useState<IPInfo | null>(null); // IP info state
+  const [isLoading, setIsLoading] = useState(true); // Loading state
 
   // Fetch IP info
   useEffect(() => {
     const getInfo = async () => {
       const data = await fetchIPInfo();
       setIpInfo(data);
+      setIsLoading(false);
     };
 
     getInfo();
@@ -31,13 +32,19 @@ const Home = () => {
 
   // Update state with search results
   const getSearchResults = (result: IPInfo) => setIpInfo(result);
+  const setSearchLoading = (loading: boolean) => setIsLoading(loading);
 
   return (
     <main className="relative w-full h-screen">
-      <Header getSearchResults={getSearchResults} ipInfo={ipInfo} />
+      <Header
+        ipInfo={ipInfo}
+        isLoading={isLoading}
+        setSearchLoading={setSearchLoading}
+        getSearchResults={getSearchResults}
+      />
       <section className="h-[65%] md:h-[75%]">
-        {ipInfo?.location ? (
-          <DynamicMap position={[ipInfo?.location.lat, ipInfo?.location.lng]} />
+        {ipInfo?.location && !isLoading ? (
+          <DynamicMap position={[ipInfo.location.lat, ipInfo.location.lng]} />
         ) : (
           <Loading />
         )}

@@ -9,11 +9,9 @@ import arrowIcon from "../../public/images/icon-arrow.svg";
 import { isValidDomain, isValidIP } from "@/lib/utils";
 import { fetchIPInfo } from "@/lib/fetchData";
 
-import type { HeaderProps } from "../types/Components";
+import type { SearchBarProps } from "../types/Components";
 
-const SearchBar = ({
-  getSearchResults,
-}: Pick<HeaderProps, "getSearchResults">) => {
+const SearchBar = ({ getSearchResults, setSearchLoading }: SearchBarProps) => {
   // Query state
   const [query, setQuery] = useState<string>("");
 
@@ -36,9 +34,13 @@ const SearchBar = ({
       return;
     }
 
+    // Start loading
+    setSearchLoading(true);
+
     // Fetch IP info
     const data = await fetchIPInfo(query);
     getSearchResults(data);
+    setSearchLoading(false);
   };
 
   return (
