@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { toast } from "react-toastify";
 
@@ -11,9 +11,20 @@ import { fetchIPInfo } from "@/lib/fetchData";
 
 import type { SearchBarProps } from "../types/Components";
 
-const SearchBar = ({ getSearchResults, setSearchLoading }: SearchBarProps) => {
+const SearchBar = ({
+  currentIP,
+  getSearchResults,
+  setSearchLoading,
+}: SearchBarProps) => {
   // Query state
   const [query, setQuery] = useState<string>("");
+
+  // Update query state when currentIP changes only in first render
+  useEffect(() => {
+    if (query.length === 0) {
+      setQuery(currentIP);
+    }
+  }, [currentIP]);
 
   // Test the input against domain, IPv4, and IPv6 regex patterns
   const isValid = (value: string) => {

@@ -52,6 +52,7 @@ const Header = ({
       {/* Search and Result */}
       <section className="flex flex-col items-center w-[85%] mt-8 gap-6">
         <SearchBar
+          currentIP={ipInfo?.ip ?? ""}
           getSearchResults={getSearchResults}
           setSearchLoading={setSearchLoading}
         />
