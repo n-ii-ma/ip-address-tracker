@@ -24,11 +24,12 @@ const SearchBar = ({
     if (query.length === 0) {
       setQuery(currentIP);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIP]);
 
-  // Test the input against domain, IPv4, and IPv6 regex patterns
+  // Test the input against domain, IPv4, and IPv6 regex patterns and accept empty values to get the current IP
   const isValid = (value: string) => {
-    if (isValidDomain(value) || isValidIP(value)) {
+    if (isValidDomain(value) || isValidIP(value) || value === "") {
       return true;
     } else {
       return false;
