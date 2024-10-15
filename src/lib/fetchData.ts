@@ -14,10 +14,22 @@ export const getIPInfo = async (
 
   try {
     const res = await fetch(URL);
+
+    // Check if the response status is not 2xx
+    if (!res.ok) {
+      // Extract the error message from the response
+      const errorData = await res.json();
+      throw new Error(
+        `API Error: ${res.status} ${res.statusText} - ${
+          errorData.messages || "Unknown error"
+        }`
+      );
+    }
+
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error("Failed to fetch IP info", error);
+    console.error("Error fetching data", error);
     throw error;
   }
 };
