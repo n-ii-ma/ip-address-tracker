@@ -1,5 +1,7 @@
 import "./ui/globals.css";
 import { rubik } from "./ui/fonts";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import type { Metadata } from "next";
 
@@ -25,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${rubik.className} antialiased`}>{children}</body>
+      <body className={`${rubik.className} antialiased`}>
+        {children}
+        <ToastContainer />
+      </body>
     </html>
   );
 }
